@@ -12,11 +12,14 @@ _SPRITE_SAMPLE_LIMIT = 10  # Maximum number of sprites to log per group
 _frame_count = 0
 _state_log_initialized = False
 _event_log_initialized = False
-_start_time = datetime.now()
+_start_time = None
 
 
 def log_state():
-    global _frame_count, _state_log_initialized
+    global _frame_count, _state_log_initialized, _start_time
+
+    if _start_time is None:
+        _start_time = datetime.now()
 
     # Stop logging after `_MAX_SECONDS` seconds
     if _frame_count > _FPS * _MAX_SECONDS:
