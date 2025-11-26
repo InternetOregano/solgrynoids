@@ -1,5 +1,3 @@
-from locale import D_T_FMT
-
 import pygame
 
 from circleshape import CircleShape
